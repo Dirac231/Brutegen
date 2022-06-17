@@ -1,7 +1,7 @@
 ## What is this?
 Brutegen is a bash function that creates a profiled wordlist from a web application, especially useful during bruteforce attacks regarding passwords.\
 \
-It crawls the web application and fetches words with a minimum length of 4 including numbers, then it optionally recombines this wordlist by using a custom-made hashcat rule file, and adds common passwords from the darkweb2017 seclist file.
+It crawls the web application while trying to guess endpoints from ```common.txt```, then it fetches words with a minimum length of 4 including numbers and optionally recombines them by using a custom-made hashcat rule file. As the final step, it adds common passwords from the darkweb2017 seclist file.
 
 ## Requirements
 To use brutegen you'll neeed a few things installed, you can solve this first by running this command (Kali Linux recommended)
