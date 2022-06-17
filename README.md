@@ -1,5 +1,5 @@
 ## What is this?
-Brutegen is a bash function that creates a profiled wordlist from a web application, especially useful during bruteforce attacks.\
+Brutegen is a bash function that creates a profiled wordlist from a web application, especially useful during bruteforce attacks regarding passwords.\
 \
 It crawls the web application and fetches words with a minimum length of 4 including numbers, then it optionally recombines this wordlist by using a custom-made hashcat rule file, and adds common passwords from the darkweb2017 seclist file.
 
@@ -15,7 +15,8 @@ go install -v github.com/tomnomnom/anew@latest
 Next, download the ```my_custom.rule``` file and put it in ```/usr/share/hashcat/rules/my_custom.rule```
 
 ## How to use?
-Simply run it with the full root web address as an argument
+Copy the function in the ```brutegen.sh``` file and paste it in your ```~/.bashrc``` or equivalent, then ```source``` the file, and run the function against the starting crawling endpoint:
 ```bash
 brutegen http://www.example.com/
 ```
+At the end of the execution, you will have the ```combined_wordlist.txt``` file that you can use as a password list for your attack.
