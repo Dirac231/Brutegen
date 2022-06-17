@@ -12,7 +12,7 @@ One extra thing that you'll need is the ```anew``` program, that you can easily 
 ```
 go install -v github.com/tomnomnom/anew@latest
 ```
-Next, download the custom .rule file and put it in ```/usr/share/hashcat/rules/my_custom.rule```
+Next, download the ```my_custom.rule``` file and put it in ```/usr/share/hashcat/rules/my_custom.rule```
 
 ## How to use?
 Simply run it with the full root web address as an argument
