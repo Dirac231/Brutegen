@@ -1,6 +1,6 @@
 brutegen(){
     echo -e "\nCRAWLING WEB APPLICATION\n"
-    gospider --sitemap -d 0 -k 2 -c 8 -s $1 | grep -E '(\[url\]|\[robots\]|\[sitemap\])' | grep -o -E "(([a-zA-Z][a-zA-Z0-9+-.]*\:\/\/)|mailto|data\:)([a-zA-Z0-9\.\&\/\?\:@\+-\_=#%;,])*" | sort -u > brutegen_tmp
+    gospider --sitemap -d 0 -k 2 -c 8 -s $1 | grep -E '(\[linkfinder\]|\[url\]|\[robots\]|\[sitemap\])' | grep -o -E "(([a-zA-Z][a-zA-Z0-9+-.]*\:\/\/)|mailto|data\:)([a-zA-Z0-9\.\&\/\?\:@\+-\_=#%;,])*" | sort -u > brutegen_tmp
 
     echo -e "\nRETRIEVING ENDPOINTS WITH COMMON.TXT\n"
     ffuf -c -mc 200,204 -w /usr/share/seclists/Discovery/Web-Content/common.txt -r -u $1FUZZ/ -s > endpoints_tmp
@@ -17,7 +17,7 @@ brutegen(){
     touch endpoints.txt
     while read p
     do
-        gospider --sitemap -d 0 -k 2 -c 8 -s $1 | grep -E '(\[url\]|\[robots\]|\[sitemap\])' | grep -o -E "(([a-zA-Z][a-zA-Z0-9+-.]*\:\/\/)|mailto|data\:)([a-zA-Z0-9\.\&\/\?\:@\+-\_=#%;,])*" | anew -q endpoints.txt
+        gospider --sitemap -d 0 -k 2 -c 8 -s $1 | grep -E '(\[linkfinder\]|\[url\]|\[robots\]|\[sitemap\])' | grep -o -E "(([a-zA-Z][a-zA-Z0-9+-.]*\:\/\/)|mailto|data\:)([a-zA-Z0-9\.\&\/\?\:@\+-\_=#%;,])*" | anew -q endpoints.txt
     done < temp_endpoints.txt
     rm temp_endpoints.txt
 
